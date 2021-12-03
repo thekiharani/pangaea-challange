@@ -9,10 +9,10 @@ printf '\n\n'
 printf 'Publishing:\n'
 curl -X POST -H "Content-Type: application/json" -d '{"message": "presentation reminder"}' http://localhost:8000/api/publish/engineering
 
-printf '\n\n'
-printf 'Running Jobs:\n'
-php artisan horizon && horizon:terminate 
-
-printf '\n\n'
-printf 'Exiting:\n'
-exit
+#printf '\n\n'
+#printf 'Running Jobs:\n'
+#php artisan horizon && horizon:terminate
+#
+#printf '\n\n'
+#printf 'Exiting:\n'
+#exit
