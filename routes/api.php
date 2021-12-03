@@ -14,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Subscriptions
+Route::get('subscriptions', [\App\Http\Controllers\SubscriptionController::class, 'index'])
+    ->name('subscriptions.index');
+Route::post('subscribe/{topic}', [\App\Http\Controllers\SubscriptionController::class, 'store'])
+    ->name('subscriptions.store');
+
+
+// Topics
+Route::get('topics', [\App\Http\Controllers\TopicController::class, 'index'])
+    ->name('topics.index');
+Route::post('topics', [\App\Http\Controllers\TopicController::class, 'store'])
+    ->name('topics.store');
