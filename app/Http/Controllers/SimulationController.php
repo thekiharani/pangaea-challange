@@ -7,29 +7,27 @@ use Illuminate\Http\Request;
 class SimulationController extends Controller
 {
     /**
-     * @param $data
+     * @param Request $request
      * @return void
      */
-    public function students($data)
+    public function students(Request $request)
     {
-        \Log::info($data);
+        \Log::channel('notifications')
+            ->info(route('students.simulate'));
+        \Log::channel('notifications')
+            ->info(json_encode($request->data));
     }
 
     /**
-     * @param $data
+     * @param Request $request
      * @return void
      */
-    public function teachers($data)
+    public function teachers(Request $request)
     {
-        \Log::info($data);
+        \Log::channel('notifications')
+            ->info(route('teachers.simulate'));
+        \Log::channel('notifications')
+            ->info(json_encode($request->data));
     }
 
-    /**
-     * @param $data
-     * @return void
-     */
-    public function catering($data)
-    {
-        \Log::info($data);
-    }
 }

@@ -26,17 +26,11 @@ class SubscriptionController extends Controller
      * Store a newly created resource in storage.
      *
      * @param SubscriptionRequest $request
+     * @param $topic
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(SubscriptionRequest $request, $topic): \Illuminate\Http\JsonResponse
     {
-        $finder = Topic::firstWhere('slug', '=', $topic);
-        if (! $finder) {
-            return response()->json([
-                'success' => false,
-                'error' => 'topic not found'
-            ], Response::HTTP_NOT_FOUND);
-        }
         $sub = Subscription::firstOrCreate([
             'topic' => $topic,
             'url' => $request->input('url')

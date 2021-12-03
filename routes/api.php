@@ -27,10 +27,12 @@ Route::get('topics', [\App\Http\Controllers\TopicController::class, 'index'])
 Route::post('topics', [\App\Http\Controllers\TopicController::class, 'store'])
     ->name('topics.store');
 
+// Client: publish topics
+Route::post('publish/{topic}', \App\Http\Controllers\ClientController::class)
+    ->name('client.publish');
+
 // Simulation endpoints
 Route::post('students', [\App\Http\Controllers\SimulationController::class, 'students'])
     ->name('students.simulate');
 Route::post('teachers', [\App\Http\Controllers\SimulationController::class, 'teachers'])
     ->name('teachers.simulate');
-Route::post('catering', [\App\Http\Controllers\SimulationController::class, 'catering'])
-    ->name('catering.simulate');
