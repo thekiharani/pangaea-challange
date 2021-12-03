@@ -30,7 +30,7 @@ class SubscriptionController extends Controller
      */
     public function store(SubscriptionRequest $request, $topic): \Illuminate\Http\JsonResponse
     {
-        $finder = Topic::firstWhere('slug', '=', $topic)->get();
+        $finder = Topic::firstWhere('slug', '=', $topic);
         if (! $finder) {
             return response()->json([
                 'success' => false,
