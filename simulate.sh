@@ -11,7 +11,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"message": "presentation r
 
 #printf '\n\n'
 #printf 'Running Jobs:\n'
-#php artisan horizon && horizon:terminate
+#php artisan queue:work
 #
 #printf '\n\n'
 #printf 'Exiting:\n'
